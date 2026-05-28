@@ -228,13 +228,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
   min-height: 96rpx;
   border: 1rpx solid #e1ded4;
   border-radius: 28rpx;
   background: #ffffff;
   color: #17201b;
   padding: 0 24rpx;
-  font-size: 30rpx;
+  font-size: 29rpx;
   font-weight: 950;
 }
 
@@ -242,6 +244,8 @@
   flex: 1;
   min-width: 0;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mode-pill {
@@ -259,12 +263,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  box-sizing: border-box;
   min-height: 104rpx;
   border: 0;
   border-radius: 28rpx;
   background: #17c96d;
   color: #ffffff;
-  font-size: 36rpx;
+  font-size: 34rpx;
   font-weight: 950;
   box-shadow: 0 12rpx 24rpx rgba(23, 201, 109, 0.22);
 }
@@ -276,6 +281,7 @@
   font-weight: inherit;
   line-height: 1;
   text-align: center;
+  white-space: nowrap;
 }
 
 .sheet-backdrop,
