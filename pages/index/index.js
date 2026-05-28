@@ -267,7 +267,11 @@ Page({
       data: this.data.reportText,
       success: () => {
         wx.hideToast();
-        this.showCopyToast('生成成功，已复制');
+        setTimeout(() => wx.hideToast(), 30);
+        setTimeout(() => {
+          wx.hideToast();
+          this.showCopyToast('生成成功，已复制');
+        }, 120);
       },
     });
   },
