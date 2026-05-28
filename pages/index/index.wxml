@@ -81,7 +81,7 @@
       <view class="sheet-head">
         <text>{{pickerTitle}}</text>
       </view>
-      <button class="close-button" catchtap="closePicker">×</button>
+      <view class="close-button" catchtap="closePicker">×</view>
       <view class="picker-grid">
         <view
           wx:for="{{pickerColumns}}"
@@ -99,8 +99,8 @@
             <text>{{item.suffix}}</text>
           </view>
           <view class="picker-actions">
-            <button data-key="{{item.key}}" data-delta="-1" bindtap="stepPicker">－</button>
-            <button data-key="{{item.key}}" data-delta="1" bindtap="stepPicker">＋</button>
+            <view data-key="{{item.key}}" data-delta="-1" bindtap="stepPicker">－</view>
+            <view data-key="{{item.key}}" data-delta="1" bindtap="stepPicker">＋</view>
           </view>
         </view>
       </view>
@@ -118,7 +118,7 @@
           <text class="mode-pill">{{modeName}}</text>
         </view>
       </view>
-      <button class="close-button" catchtap="closePreview">×</button>
+      <view class="close-button" catchtap="closePreview">×</view>
       <text class="report-text">{{reportText}}</text>
       <text class="official-note">本工具仅生成统一结算模板，便于快速报单与核对；如需补充备注，请复制后按实际情况自行完善。</text>
     </view>
