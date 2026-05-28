@@ -1,0 +1,120 @@
+<view class="page">
+  <view class="tool-card">
+    <view class="hero">
+      <text class="title">高效计时器</text>
+      <text class="blessing">祝您今日接单顺利</text>
+    </view>
+
+    <view class="time-grid">
+      <button class="date-button" bindtap="openStartPicker">
+        <text>开始时间</text>
+        <view>
+          <text class="date-value">{{startLabel}}</text>
+          <text class="chevron">⌄</text>
+        </view>
+      </button>
+      <button class="date-button" bindtap="openEndPicker">
+        <text>结束时间</text>
+        <view>
+          <text class="date-value">{{endLabel}}</text>
+          <text class="chevron">⌄</text>
+        </view>
+      </button>
+    </view>
+
+    <view class="money-grid">
+      <view class="field">
+        <text>单价</text>
+        <view class="inline-input">
+          <input type="digit" value="{{hourlyRate}}" bindinput="onRateInput" />
+          <text>元/小时</text>
+        </view>
+      </view>
+      <view class="field">
+        <text>抽成</text>
+        <view class="inline-input">
+          <input type="digit" value="{{commission}}" bindinput="onCommissionInput" />
+          <text>元/小时</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="rule-section">
+      <text class="section-title">计算规则</text>
+      <view class="rule-list">
+        <button
+          wx:for="{{billingModes}}"
+          wx:key="id"
+          class="rule-option {{mode === item.id ? 'rule-option-active' : ''}}"
+          data-mode="{{item.id}}"
+          bindtap="selectMode"
+        >
+          <view class="radio-dot">
+            <text wx:if="{{mode === item.id}}">✓</text>
+          </view>
+          <view>
+            <text class="rule-name">{{item.name}}</text>
+            <text class="rule-detail">{{item.detail}}</text>
+          </view>
+        </button>
+      </view>
+    </view>
+
+    <view class="result-box">
+      <text>实际结果 <text class="strong">{{actualDuration}}</text></text>
+      <text>总计 <text class="strong">{{grossText}} 元</text>，抽成 <text class="strong">{{commissionText}} 元</text></text>
+      <text class="net-line">到手 ¥{{netText}}</text>
+    </view>
+
+    <button class="preview-button" bindtap="openPreview">
+      <text>查看报单预览</text>
+      <text class="mode-pill">{{modeName}}</text>
+    </button>
+
+    <button class="template-button" bindtap="copyReport">生成报单模板</button>
+  </view>
+
+  <view wx:if="{{pickerVisible}}" class="sheet-backdrop">
+    <view class="sheet">
+      <view class="sheet-head">
+        <text>{{pickerTitle}}</text>
+        <button bindtap="closePicker">×</button>
+      </view>
+      <view class="picker-grid">
+        <view
+          wx:for="{{pickerColumns}}"
+          wx:key="key"
+          class="picker-column"
+        >
+          <text class="picker-label">{{item.label}}</text>
+          <button data-key="{{item.key}}" data-delta="1" bindtap="stepPicker">＋</button>
+          <view class="picker-value">
+            <input
+              type="number"
+              value="{{item.display}}"
+              data-key="{{item.key}}"
+              bindinput="inputPickerValue"
+            />
+            <text>{{item.suffix}}</text>
+          </view>
+          <button data-key="{{item.key}}" data-delta="-1" bindtap="stepPicker">－</button>
+        </view>
+      </view>
+      <button class="sheet-confirm" bindtap="closePicker">完成</button>
+    </view>
+  </view>
+
+  <view wx:if="{{previewVisible}}" class="modal-backdrop" bindtap="closePreview">
+    <view class="preview-modal" catchtap="noop">
+      <view class="modal-head">
+        <view>
+          <text class="modal-title">报单预览</text>
+          <text class="mode-pill">{{modeName}}</text>
+        </view>
+        <button bindtap="closePreview">×</button>
+      </view>
+      <text class="report-text">{{reportText}}</text>
+      <text class="official-note">本工具仅生成统一结算模板，便于快速报单与核对；如需补充备注，请复制后按实际情况自行完善。</text>
+    </view>
+  </view>
+</view>

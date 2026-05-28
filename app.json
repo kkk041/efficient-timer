@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "高效计时器",
+    "navigationBarBackgroundColor": "#fffdf8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eef4ef"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

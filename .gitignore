@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+miniprogram_npm/
+project.private.config.json
+.DS_Store
