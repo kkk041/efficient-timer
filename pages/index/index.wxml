@@ -71,15 +71,17 @@
       <text class="mode-pill">{{modeName}}</text>
     </button>
 
-    <button class="template-button" bindtap="copyReport">生成报单模板</button>
+    <button class="template-button" bindtap="copyReport">
+      <text>生成报单模板</text>
+    </button>
   </view>
 
-  <view wx:if="{{pickerVisible}}" class="sheet-backdrop">
-    <view class="sheet">
+  <view wx:if="{{pickerVisible}}" class="sheet-backdrop" bindtap="closePicker">
+    <view class="sheet" catchtap="noop">
       <view class="sheet-head">
         <text>{{pickerTitle}}</text>
-        <button bindtap="closePicker">×</button>
       </view>
+      <button class="close-button" catchtap="closePicker">×</button>
       <view class="picker-grid">
         <view
           wx:for="{{pickerColumns}}"
@@ -102,7 +104,9 @@
           </view>
         </view>
       </view>
-      <button class="sheet-confirm" bindtap="closePicker">完成</button>
+      <button class="sheet-confirm" bindtap="closePicker">
+        <text>完成</text>
+      </button>
     </view>
   </view>
 
@@ -113,8 +117,8 @@
           <text class="modal-title">报单预览</text>
           <text class="mode-pill">{{modeName}}</text>
         </view>
-        <button bindtap="closePreview">×</button>
       </view>
+      <button class="close-button" catchtap="closePreview">×</button>
       <text class="report-text">{{reportText}}</text>
       <text class="official-note">本工具仅生成统一结算模板，便于快速报单与核对；如需补充备注，请复制后按实际情况自行完善。</text>
     </view>

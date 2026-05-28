@@ -4,6 +4,9 @@
 }
 
 .tool-card {
+  width: 100%;
+  max-width: 700rpx;
+  margin: 0 auto;
   border: 1rpx solid rgba(23, 32, 27, 0.08);
   border-radius: 32rpx;
   background: #fffdf8;
@@ -245,6 +248,9 @@
 }
 
 .template-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 104rpx;
   border: 0;
@@ -254,6 +260,15 @@
   font-size: 36rpx;
   font-weight: 950;
   box-shadow: 0 12rpx 24rpx rgba(23, 201, 109, 0.22);
+}
+
+.template-button text,
+.sheet-confirm text {
+  color: #ffffff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1;
+  text-align: center;
 }
 
 .sheet-backdrop,
@@ -267,17 +282,19 @@
 .sheet-backdrop {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   padding: 24rpx 24rpx calc(24rpx + env(safe-area-inset-bottom));
 }
 
 .sheet {
   position: relative;
   width: 100%;
+  max-width: 700rpx;
   max-height: 82vh;
   overflow: auto;
   border-radius: 36rpx 36rpx 28rpx 28rpx;
   background: #fffdf8;
-  padding: 30rpx 28rpx 28rpx;
+  padding: 34rpx 28rpx 28rpx;
   box-shadow: 0 20rpx 70rpx rgba(13, 19, 15, 0.28);
 }
 
@@ -287,6 +304,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20rpx;
+  padding-right: 84rpx;
 }
 
 .sheet-head > text,
@@ -296,12 +314,13 @@
   font-weight: 950;
 }
 
-.sheet-head button,
-.modal-head button {
+.close-button {
+  position: absolute;
+  top: 24rpx;
+  right: 24rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 auto;
   width: 64rpx;
   height: 64rpx;
   border-radius: 50%;
@@ -309,7 +328,7 @@
   color: #17201b;
   font-size: 38rpx;
   line-height: 1;
-  padding: 0;
+  z-index: 2;
 }
 
 .picker-grid {
@@ -382,6 +401,9 @@
 }
 
 .sheet-confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 96rpx;
   margin-top: 22rpx;
@@ -400,6 +422,7 @@
 }
 
 .preview-modal {
+  position: relative;
   width: 100%;
   max-width: 640rpx;
   border-radius: 36rpx;
