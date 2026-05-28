@@ -465,6 +465,31 @@
   line-height: 1.55;
 }
 
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(80rpx + env(safe-area-inset-bottom));
+  z-index: 30;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 560rpx;
+  min-height: 72rpx;
+  border-radius: 999rpx;
+  background: rgba(23, 32, 27, 0.94);
+  box-shadow: 0 12rpx 32rpx rgba(12, 16, 13, 0.24);
+  padding: 0 28rpx;
+}
+
+.copy-toast text {
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 @media (max-width: 390px) {
   .tool-card {
     padding: 24rpx;

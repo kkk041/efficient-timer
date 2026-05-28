@@ -123,4 +123,8 @@
       <text class="official-note">本工具仅生成统一结算模板，便于快速报单与核对；如需补充备注，请复制后按实际情况自行完善。</text>
     </view>
   </view>
+
+  <view wx:if="{{toastVisible}}" class="copy-toast">
+    <text>{{toastText}}</text>
+  </view>
 </view>

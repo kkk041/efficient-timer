@@ -121,6 +121,8 @@ Page({
     pickerTarget: '',
     pickerTitle: '',
     previewVisible: false,
+    toastVisible: false,
+    toastText: '',
   },
 
   onLoad() {
@@ -242,14 +244,30 @@ Page({
 
   noop() {},
 
+  showCopyToast(text) {
+    if (this.toastTimer) {
+      clearTimeout(this.toastTimer);
+    }
+
+    this.setData({
+      toastVisible: true,
+      toastText: text,
+    });
+
+    this.toastTimer = setTimeout(() => {
+      this.setData({
+        toastVisible: false,
+        toastText: '',
+      });
+    }, 1600);
+  },
+
   copyReport() {
     wx.setClipboardData({
       data: this.data.reportText,
       success: () => {
-        wx.showToast({
-          title: '生成成功，已复制',
-          icon: 'success',
-        });
+        wx.hideToast();
+        this.showCopyToast('生成成功，已复制');
       },
     });
   },
