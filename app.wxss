@@ -5,5 +5,14 @@ page {
 }
 
 button {
+  display: flex;
   font: inherit;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+}
+
+button::after {
+  border: 0;
 }

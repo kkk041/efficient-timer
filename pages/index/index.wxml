@@ -67,7 +67,7 @@
     </view>
 
     <button class="preview-button" bindtap="openPreview">
-      <text>查看报单预览</text>
+      <text class="preview-label">查看报单预览</text>
       <text class="mode-pill">{{modeName}}</text>
     </button>
 
@@ -87,7 +87,6 @@
           class="picker-column"
         >
           <text class="picker-label">{{item.label}}</text>
-          <button data-key="{{item.key}}" data-delta="1" bindtap="stepPicker">＋</button>
           <view class="picker-value">
             <input
               type="number"
@@ -97,7 +96,10 @@
             />
             <text>{{item.suffix}}</text>
           </view>
-          <button data-key="{{item.key}}" data-delta="-1" bindtap="stepPicker">－</button>
+          <view class="picker-actions">
+            <button data-key="{{item.key}}" data-delta="-1" bindtap="stepPicker">－</button>
+            <button data-key="{{item.key}}" data-delta="1" bindtap="stepPicker">＋</button>
+          </view>
         </view>
       </view>
       <button class="sheet-confirm" bindtap="closePicker">完成</button>
