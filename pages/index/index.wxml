@@ -124,7 +124,4 @@
     </view>
   </view>
 
-  <view wx:if="{{toastVisible}}" class="copy-toast">
-    <text>{{toastText}}</text>
-  </view>
 </view>
